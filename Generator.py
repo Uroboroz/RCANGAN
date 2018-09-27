@@ -127,10 +127,10 @@ class ResidualGroup(nn.Module):
         return res
 
 
-class RCAN(nn.Module):
+class GenGAN(nn.Module):
     def __init__(self, n_resgroups, n_resblocks, n_feats, reduction, n_colors, res_scale, scale,
                  conv=default_conv, device=torch.device("cpu")):
-        super(RCAN, self).__init__()
+        super(GenGAN, self).__init__()
 
         n_resgroups = n_resgroups
         n_resblocks = n_resblocks
