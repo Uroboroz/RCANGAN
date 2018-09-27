@@ -59,8 +59,6 @@ class DiscGAN(nn.Module):
                                 activation_fn=nn.LeakyReLU(), device=device)
         self._conv4 = ConvLayer([3, 3, 3], padding=0, bn=batchnorm, stride=2, pool_layer=None,
                                 activation_fn=nn.LeakyReLU(), device=device)
-        self._conv5 = ConvLayer([3, 3, 3], padding=0, bn=batchnorm, stride=2, pool_layer=None,
-                                activation_fn=nn.LeakyReLU(), device=device)
 
         self.fce1 = FullyConnected([3 * ff * ff, latent_size], activation_fn=nn.LeakyReLU(), flatten=True,
                                    device=device)
@@ -72,5 +70,4 @@ class DiscGAN(nn.Module):
         x = self._conv2(x)
         x = self._conv3(x)
         x = self._conv4(x)
-        x = self._conv5(x)
         return self.fce2(self.fce1(x))
